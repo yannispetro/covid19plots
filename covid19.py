@@ -90,7 +90,7 @@ def my_form_post():
     if yaxis == 'log' and xaxis == 'atnumber':
         p.ray(x=0, y=alignAt, length=0, angle = 0.92, line_color='gray')
 
-    leg = Legend(items=legitems, location='center')
+    leg = Legend(items=legitems, location='center', label_text_font_size="15px")
     p.add_layout(leg, 'right')
 
 
