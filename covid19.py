@@ -87,8 +87,8 @@ def my_form_post():
     p.xaxis.major_label_text_font_size = "20px"
     p.yaxis.major_label_text_font_size = "20px"
     p.yaxis[0].formatter = NumeralTickFormatter(format="0")
-    if yaxis == 'log' and xaxis == 'atnumber':
-        p.ray(x=0, y=alignAt, length=0, angle = 0.92, line_color='gray')
+    # if yaxis == 'log' and xaxis == 'atnumber':
+    #     p.ray(x=0, y=alignAt, length=0, angle = 0.92, line_color='gray')
 
     leg = Legend(items=legitems, location='center', label_text_font_size="15px")
     p.add_layout(leg, 'right')
