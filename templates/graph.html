@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Application for plotting COVID19 data.">
+    <meta name="yannispetro" content="@covid19data">
+
+    <title>COVID-19 Plot</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.css" type="text/css" />
+
+    <style>
+    body {
+      padding-top: 70px;
+    }
+    </style>
+
+		<script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js"></script>
+		<script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.1.min.js"></script>
+		<script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.1.min.js"></script>
+
+    {{ script|safe }}
+
+  </head>
+
+	<body>
+    <!-- navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-1">
+          <span class="sr-only">Toggle navigation</span>
+          </button>
+          <span class="navbar-brand">COVID19 Data Vizualization App</span>
+        </div>
+
+        <div class="collapse navbar-collapse" id="nav-1">
+          <ul class="nav navbar-nav">
+						<li class="nav-item active">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://systems.jhu.edu/research/public-health/ncov/">Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://yannispetro.github.io/">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- graph -->
+		<div class="container">
+      <div class="row">
+
+
+<div class="bk-root">
+    {{ div|safe }}
+</div>
+
+		  </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>

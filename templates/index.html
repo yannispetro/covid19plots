@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Application for plotting COVID19 data.">
+    <meta name="yannispetro" content="@covid19data">
+    <!-- <link rel="icon" href="favicon.ico"> -->
+
+    <title>COVID-19 Data Vizualization App</title>
+
+    <!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Custom CSS for navbar-->
+    <style>
+    body {
+      padding-top: 70px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <!-- navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-1">
+          <span class="sr-only">Toggle navigation</span>
+          </button>
+          <span class="navbar-brand">COVID19 Data Vizualization App</span>
+        </div>
+
+        <div class="collapse navbar-collapse" id="nav-1">
+          <ul class="nav navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://systems.jhu.edu/research/public-health/ncov/">Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://yannispetro.github.io/">About</a>
+            </li>
+            <!--
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            -->
+          </ul>
+          <!--
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- form -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-left">
+          <form id='input' method='post' action="">
+          <p>Countries: <input type='text' name='country' placeholder='United States' /></p>
+          <p>
+          <p>Plot
+          &emsp;<input type="radio" name='plottype' value='cumulative' checked />&emsp; Cumulative
+          &emsp;<input type="radio" name='plottype' value='new'  />&emsp; New <br>
+          <input type="checkbox" name='features' value='confirmed' />&emsp; Confirmed cases<br>
+          <input type="checkbox" name='features' value='deaths' />&emsp; Deaths<br>
+          <input type="checkbox" name='features' value='recovered' />&emsp; Recoveries<br>
+          <input type="checkbox" name='features' value='sick_people' />&emsp; Sick people<br>
+          </p>
+
+          <p>X axis:<br>
+          <input type="radio" name='xaxis' value='bydate' checked />&emsp; Date <br>
+          <input type="radio" name='xaxis' value='atnumber' />&emsp; Days since:<br>
+          &emsp;&emsp;&emsp; <input type="radio" name='align_feature' value='confirmed' checked />&emsp; Confirmed cases<br>
+          &emsp;&emsp;&emsp; <input type="radio" name='align_feature' value='deaths' />&emsp; Deaths<br>
+          &emsp;&emsp;&emsp; <input type="radio" name='align_feature' value='recovered' />&emsp; Recoveries <br>
+          &emsp;&emsp;&emsp; exceeded &emsp;<input type='number' name='alignat' style='width: 3em;' value = 500 />
+          <br>
+          </p>
+          <p>Plot
+          &emsp;<input type="radio" name='yaxis' value='linear' checked />&emsp; linear
+          &emsp;<input type="radio" name='yaxis' value='log'  />&emsp; Logarithmic <br>
+          </p>
+
+          <p><input type="submit" value="Submit"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
