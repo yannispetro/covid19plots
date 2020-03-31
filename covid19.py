@@ -9,7 +9,7 @@ from numpy import round, linspace
 import math
 
 colorList = list(palette)
-featureNames = {'confirmed':'Cases','deaths':'Deaths','recovered':'Recoveries','sick_people':'Sick people'}
+featureNames = {'confirmed':'Cases','deaths':'Deaths','recovered':'Recoveries','active':'Active cases'}
 plottypeNames = {'cumulative':'Cumulative','new':'New'}
 
 rj = requests.get('https://pomber.github.io/covid19/timeseries.json').json()
@@ -56,11 +56,11 @@ def my_form_post():
 
         else:
             data = pd.DataFrame(rj[country])
-            data['sick_people'] = data['confirmed'] - data['deaths'] - data['recovered']
+            data['active'] = data['confirmed'] - data['deaths'] - data['recovered']
             data['confirmed_diff'] = data['confirmed'].diff().fillna(data['confirmed']).astype('int')
             data['deaths_diff'] = data['deaths'].diff().fillna(data['deaths']).astype('int')
             data['recovered_diff'] = data['recovered'].diff().fillna(data['recovered']).astype('int')
-            data['sick_people_diff'] = data['sick_people'].diff().fillna(data['sick_people']).astype('int')
+            data['active_diff'] = data['active'].diff().fillna(data['active']).astype('int')
             #x = pd.to_datetime(data['date'])
             for i in range(len(features)):
                 if xaxis == 'atnumber':
