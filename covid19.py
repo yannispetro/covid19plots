@@ -56,6 +56,7 @@ def my_form_post():
         color = colorList[colorIds[j]]
         if country not in rj:
             print('CountryError: ' + country + ' is an invalid country name.')
+            
         else:
             data = pd.DataFrame(rj[country])
             data['sick_people'] = data['confirmed'] - data['deaths'] - data['recovered']
