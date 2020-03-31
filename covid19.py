@@ -67,9 +67,11 @@ def my_form_post():
                     data = data[data[alignFeature]>=alignAt]
                     x = list(range(len(data)))
                     p.xaxis.axis_label = 'Days since '+featureNames[alignFeature]+' exceeded '+str(alignAt)
+                    vwidth = 0.7
                 else:
                     x = pd.to_datetime(data['date'])
                     p.xaxis.axis_label = 'Date'
+                    vwidth = 0.7*8.64e+7
                 y = data[features[i]+'_diff'] if plottype == 'new' else data[features[i]]
                 if yaxis == 'log':
                     r1 = p.line(x, y, line_width=2, color=color)
@@ -81,7 +83,7 @@ def my_form_post():
                         r2 = p.triangle(x, y, size=5, color=color)
                     legitems.append( (country+' - '+featureNames[features[i]], [r1,r2]) )
                 else:
-                    r1 = p.vbar(x=x, top=y, width=0.7*8.64e+7, color=color, fill_alpha = 0.3)
+                    r1 = p.vbar(x=x, top=y, width=vwidth, color=color, fill_alpha = 0.3)
                     legitems.append( (country+' - '+featureNames[features[i]], [r1]) )
     p.xaxis.axis_label_text_font_size = "25px"
     p.xaxis.major_label_text_font_size = "20px"
