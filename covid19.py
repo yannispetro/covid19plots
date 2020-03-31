@@ -4,9 +4,7 @@ import pandas as pd
 from bokeh.plotting import figure, output_file, show
 from bokeh.embed import components
 from bokeh.palettes import Turbo256 as palette
-from bokeh.models import Legend
-from bokeh.models import NumeralTickFormatter
-from bokeh.models import Range1d
+from bokeh.models import Legend, NumeralTickFormatter
 from numpy import round, linspace
 import math
 
@@ -50,13 +48,12 @@ def my_form_post():
 
     colorIds = round(linspace(0, len(colorList) - 1, len(countries))).astype(int)
     legitems = []
-    maxy, maxx = 0, 0
     for j, country in enumerate(countries):
         country = country.rstrip().lstrip()
         color = colorList[colorIds[j]]
         if country not in rj:
             print('CountryError: ' + country + ' is an invalid country name.')
-            
+
         else:
             data = pd.DataFrame(rj[country])
             data['sick_people'] = data['confirmed'] - data['deaths'] - data['recovered']
@@ -86,18 +83,12 @@ def my_form_post():
                 else:
                     r1 = p.vbar(x=x, top=y, width=0.7*8.64e+7, color=color, fill_alpha = 0.3)
                     legitems.append( (country+' - '+featureNames[features[i]], [r1]) )
-                # if yaxis == 'log' and xaxis == 'atnumber':
-                #     mxy, mxx = max(y), len(x)
-                #     maxy = mxy if mxy > maxy else maxy
-                #     maxx = mxx if mxx > maxx else maxx
     p.xaxis.axis_label_text_font_size = "25px"
     p.xaxis.major_label_text_font_size = "20px"
     p.yaxis.major_label_text_font_size = "20px"
     p.yaxis[0].formatter = NumeralTickFormatter(format="0")
-    # if yaxis == 'log' and xaxis == 'atnumber':
-    #     p.x_range=Range1d(-maxx*0.05, maxx*1.05)
-    #     p.y_range=Range1d(alignAt-math.log((maxy-alignAt)*0.1), maxy+(maxy-alignAt)*0.1)
-    #     p.line([0,10],[alignAt,maxy], color='gray')
+    if yaxis == 'log' and xaxis == 'atnumber':
+        p.ray(x=0, y=alignAt, length=0, angle = 0.92, line_color='gray')
 
     leg = Legend(items=legitems, location='center')
     p.add_layout(leg, 'right')
